@@ -1,3 +1,6 @@
+.ced_etsy_prod_name + .row-actions.visible {
+  visibility: hidden;
+}
 
 .ced_etsy_timeline_content {
   max-height: 400px;

@@ -311,7 +311,7 @@ class EtsyListProducts extends WP_List_Table {
 		// $actions['status'] = '<strong>' . ucwords( $item['status'] ) . '</strong>';
 		$actions['type']   = '<strong>' . ucwords( $product_type ) . '</strong>';
 		$actions['Edit']   = '<span class="edit"><a class="ced_etsy_prod_url" href="' . esc_attr( $editUrl ) . '" target="_blank" >Edit</a></span>';
-		echo '<b class="ced_etsy_prod_name"><a class="ced_etsy_prod_name" href="' . esc_attr( $editUrl ) . '" >' . esc_attr( $item['name'] ) . '</a></b>';
+		echo '<b class="ced_etsy_prod_name ced_etsy_edit_fields_'.$item['id'].'"><a class="ced_etsy_prod_name" href="' . esc_attr( $editUrl ) . '" >' . esc_attr( $item['name'] ) . '</a></b>';
 		return $this->row_actions( $actions, true );
 	}
 
@@ -594,8 +594,8 @@ class EtsyListProducts extends WP_List_Table {
 
 	public function single_row( $item ) {
 		$post_id = isset( $item['id'] ) ? $item['id'] : 0;
-		$row_class = 'ced-row-class';
-		$row_id = 'ced-row-id-' . $post_id;
+		$row_class = 'ced_etsy_single_row';
+		$row_id = 'ced_etsy_edit_fields_'. $post_id;
 		echo '<tr id="' . esc_attr( $row_id ) . '" class="' . esc_attr( $row_class ) . '">';
 		$this->single_row_columns( $item );
 		echo '</tr>';

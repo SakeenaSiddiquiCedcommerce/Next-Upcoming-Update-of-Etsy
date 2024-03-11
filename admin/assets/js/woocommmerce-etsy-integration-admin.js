@@ -36,10 +36,20 @@
 	 var parent = false;
 
 
-	$( document ).ready(
-		function(){
-			$( '.custom_category_attributes_select2' ).selectWoo();
-		}
+	 $( document ).ready(
+	 	function(){
+	 		$( '.custom_category_attributes_select2' ).selectWoo();
+	 		$('.ced_etsy_single_row').hover(
+	 			function() {
+	 				var get_attribute_id = $(this).attr("id");
+	 				$('.'+get_attribute_id+' + .row-actions').css('visibility', 'visible');
+	 			},
+	 			function() {
+	 				var get_attribute_id = $(this).attr("id");
+	 				$('.'+get_attribute_id+' + .row-actions').css('visibility', 'hidden');
+	 			}
+	 		)
+	 	}
 	);
 	$( document ).on(
 		'change',
